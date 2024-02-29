@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.Space) && ground){
             jump();
         }
+        if(horizontalInput < 0){
+            transform.localScale = new Vector2(-1,1);
+        }else if(horizontalInput > 0){
+            transform.localScale = new Vector2(1,1);
+        }
     }
 
     private void jump(){
