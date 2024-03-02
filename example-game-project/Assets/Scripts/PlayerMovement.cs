@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpPower;
     private Rigidbody2D body;
     private bool ground;
+
+    private Animator anim;
     
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -23,10 +27,13 @@ public class PlayerMovement : MonoBehaviour
         }else if(horizontalInput > 0){
             transform.localScale = new Vector2(1,1);
         }
+        anim.SetBool("run", horizontalInput != 0);
+        anim.SetBool("ground", ground);
     }
 
     private void jump(){
         body.velocity = new Vector2(body.velocity.x, jumpPower);
+        anim.SetTrigger("jump");
         ground = false;
     }
     private void OnCollisionEnter2D(Collision2D collision) {
