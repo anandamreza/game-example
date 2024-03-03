@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class enemyMovement : MonoBehaviour
 {
     private Animator anim;
+
+    //enemy size
+    [SerializeField] private float size_x;
+    [SerializeField] private float size_y;
+    [SerializeField] private float size_z;
 
     //movement var
     public Transform[] patrolPoint;
@@ -19,45 +25,49 @@ public class enemyMovement : MonoBehaviour
 
     private void Awake()
     {
-        chaseMode = false;
         anim = GetComponent<Animator>();
+    }
+
+    public void Start()
+    {
+        destination = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (chaseMode)
+        if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
         {
-            if(transform.position.x > playerTransform.position.x)
+            chaseMode = true;
+            anim.SetBool("IsEnemyChasing?", true);
+            Debug.Log("chaseMode activated\n");
+
+            if (transform.position.x > playerTransform.position.x)
             {
-                transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position += Vector3.left * chaseSpeed * Time.deltaTime;
+                Debug.Log("Enemy is chasing to the left...\n");
             }
             else if (transform.position.x < playerTransform.position.x)
             {
-                transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+                transform.localScale = new Vector3(-size_x, size_y, size_z);
                 transform.position += Vector3.right * chaseSpeed * Time.deltaTime;
+                Debug.Log("Enemy is chasing to the right...\n");
             }
         }
         else
         {
-            if(Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
-            {
-                chaseMode = true;
-                anim.SetBool("IsPeterChasing?", true);
-            }
-            else
-            {
-                anim.SetBool("IsPeterChasing?", false);
-            }
+            chaseMode = false;
+            anim.SetBool("IsEnemyChasing?", false);
 
             if (destination == 0)
             {
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
                 {
-                    transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                    transform.localScale = new Vector3(-size_x, size_y, size_z);
                     destination = 1;
+                    Debug.Log("Roaming to 1\n");
                 }
             }
             else if (destination == 1)
@@ -65,8 +75,9 @@ public class enemyMovement : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
-                    transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+                    transform.localScale = new Vector3(size_x, size_y, size_z);
                     destination = 0;
+                    Debug.Log("Roaming to 0\n");
                 }
             }
         }
