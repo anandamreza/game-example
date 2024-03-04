@@ -54,6 +54,7 @@ public class enemyMovement : MonoBehaviour
                 transform.position += Vector3.right * chaseSpeed * Time.deltaTime;
                 Debug.Log("Enemy is chasing to the right...\n");
             }
+
         }
         else
         {
@@ -62,20 +63,20 @@ public class enemyMovement : MonoBehaviour
 
             if (destination == 0)
             {
+                transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
                 {
-                    transform.localScale = new Vector3(-size_x, size_y, size_z);
                     destination = 1;
                     Debug.Log("Roaming to 1\n");
                 }
             }
             else if (destination == 1)
             {
+                transform.localScale = new Vector3(-size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
-                    transform.localScale = new Vector3(size_x, size_y, size_z);
                     destination = 0;
                     Debug.Log("Roaming to 0\n");
                 }
