@@ -63,6 +63,7 @@ public class enemyMovement : MonoBehaviour
 
             if (destination == 0)
             {
+                anim.SetBool("IsEnemyMoving?", true);
                 transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
@@ -77,6 +78,7 @@ public class enemyMovement : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
+                    anim.SetTrigger("IsEnemyMoving?");
                     destination = 0;
                     Debug.Log("Roaming to 0\n");
                 }
