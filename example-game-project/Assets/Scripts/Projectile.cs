@@ -8,10 +8,12 @@ public class Projectile : MonoBehaviour
     private bool hit;
     float direction;
     private BoxCollider2D boxColider;
+    private GameObject enemy;
 
     void Awake()
     {
         boxColider = GetComponent<BoxCollider2D>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     void Update()
@@ -26,6 +28,9 @@ public class Projectile : MonoBehaviour
         hit = true;
         gameObject.SetActive(false);
         Debug.Log("Test");
+        if(other.gameObject.tag == "Enemy"){
+            enemy.GetComponent<enemyHealth>().takeDamage(50);
+        }
     }
 
     public void SetDirection(float _direction){
