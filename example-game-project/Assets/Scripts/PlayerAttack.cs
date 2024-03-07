@@ -16,13 +16,17 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        anim.SetBool("charging", Input.GetMouseButton(0));
+        if(pm.canAttack()){
+            anim.SetBool("charging", Input.GetMouseButton(0));
+        }
         if(Input.GetMouseButton(0)){
             chargeTime += Time.deltaTime;
             
         }
         if(Input.GetMouseButtonUp(0) && chargeTime >= attackTime){
-            Attack();
+            if(pm.canAttack()){
+                Attack();
+            }
         }
         if(Input.GetMouseButtonUp(0) && chargeTime < attackTime){
             chargeTime = 0;
@@ -31,9 +35,17 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack(){
         chargeTime = 0;
-        Debug.Log("Fire");
 
-        fireBalls[0].transform.position = firePoint.position;
-        fireBalls[0].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        fireBalls[FireBallTake()].transform.position = firePoint.position;
+        fireBalls[FireBallTake()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+    }
+
+    int FireBallTake(){
+        for(int i=0; i< 10; i++){
+            if(!fireBalls[i].activeInHierarchy){
+                return i;
+            }
+        }
+        return 0;
     }
 }
