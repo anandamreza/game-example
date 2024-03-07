@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public bool ground;
     public GameObject kaki;
     private Animator anim;
+
+    private float horizontalInput;
     
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         // if(Input.GetKey(KeyCode.Space) && ground){
         //     jump();
@@ -37,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector2(body.velocity.x, jumpPower);
         anim.SetTrigger("jump");
         ground = false;
+    }
+
+    public bool canAttack(){
+        return horizontalInput == 0 && ground;
     }
     // private void OnCollisionEnter2D(Collision2D collision) {
     //     if(collision.gameObject.tag == "Ground"){
