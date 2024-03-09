@@ -7,17 +7,17 @@ public class enemyMovement : MonoBehaviour
 {
     private Animator anim;
 
-    //enemy size
+    [Header("Enemy Scale")]
     [SerializeField] private float size_x;
     [SerializeField] private float size_y;
     [SerializeField] private float size_z;
 
-    //movement var
+    [Header("Enemy Patrol")]
     public Transform[] patrolPoint;
     public float moveSpeed;
     public int destination;
 
-    //chase var
+    [Header("Enemy Chase")]
     public Transform playerTransform;
     public bool chaseMode;
     public float chaseSpeed;
@@ -40,19 +40,19 @@ public class enemyMovement : MonoBehaviour
         {
             chaseMode = true;
             anim.SetBool("IsEnemyChasing?", true);
-            Debug.Log("chaseMode activated\n");
+            //Debug.Log("chaseMode activated\n");
 
             if (transform.position.x > playerTransform.position.x)
             {
                 transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position += Vector3.left * chaseSpeed * Time.deltaTime;
-                Debug.Log("Enemy is chasing to the left...\n");
+                //Debug.Log("Enemy is chasing to the left...\n");
             }
             else if (transform.position.x < playerTransform.position.x)
             {
                 transform.localScale = new Vector3(-size_x, size_y, size_z);
                 transform.position += Vector3.right * chaseSpeed * Time.deltaTime;
-                Debug.Log("Enemy is chasing to the right...\n");
+                //Debug.Log("Enemy is chasing to the right...\n");
             }
 
         }
@@ -63,13 +63,12 @@ public class enemyMovement : MonoBehaviour
 
             if (destination == 0)
             {
-                anim.SetBool("IsEnemyMoving?", true);
                 transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
                 {
                     destination = 1;
-                    Debug.Log("Roaming to 1\n");
+                    //Debug.Log("Roaming to 1\n");
                 }
             }
             else if (destination == 1)
@@ -78,9 +77,8 @@ public class enemyMovement : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
-                    anim.SetTrigger("IsEnemyMoving?");
                     destination = 0;
-                    Debug.Log("Roaming to 0\n");
+                    //Debug.Log("Roaming to 0\n");
                 }
             }
         }
