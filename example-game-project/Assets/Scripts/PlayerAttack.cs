@@ -16,9 +16,8 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if(pm.canAttack()){
-            anim.SetBool("charging", Input.GetMouseButton(0));
-        }
+        anim.SetBool("charging", Input.GetMouseButton(0) && pm.canAttack());
+
         if(Input.GetMouseButton(0)){
             chargeTime += Time.deltaTime;
             

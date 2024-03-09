@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     private bool hit;
+    private float projectileHilang;
     float direction;
     private BoxCollider2D boxColider;
     private GameObject enemy;
@@ -21,6 +22,10 @@ public class Projectile : MonoBehaviour
         if(hit) return;
         float movementSpeed = speed * Time.deltaTime * direction;
         transform.Translate(movementSpeed,0,0);
+        if(projectileHilang >= 5){
+            gameObject.SetActive(false);
+        }
+        projectileHilang += Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +39,7 @@ public class Projectile : MonoBehaviour
     }
 
     public void SetDirection(float _direction){
+        projectileHilang = 0;
         direction = _direction;
         gameObject.SetActive(true);
         hit = false;
