@@ -128,6 +128,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5405428297666675679, guid: 9698e36d60a19644ebe6715d42e11d9b, type: 3}
   m_PrefabInstance: {fileID: 2060950300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &47756884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1152357208413295607, guid: e07efd5e49c3f8740b401876d29797da, type: 3}
+  m_PrefabInstance: {fileID: 137802652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &50157434
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +354,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -424,12 +430,25 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.14, y: -2.98, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3253b59eb3188241a426f1dd0cf0746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 47756884}
 --- !u!1 &586007767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5774472178209615211, guid: c0ac959f186101c4aa20dde1caba53e2, type: 3}
@@ -842,7 +861,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8087305583011848182, guid: e07efd5e49c3f8740b401876d29797da, type: 3}
   m_PrefabInstance: {fileID: 137802652}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 47756884}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baa2bf6a38141b14a83692961ce75040, type: 3}
