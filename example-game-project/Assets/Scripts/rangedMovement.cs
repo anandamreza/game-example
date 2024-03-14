@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class enemyMovement : MonoBehaviour
+public class rangedMovement : MonoBehaviour
 {
     private Animator anim;
 
@@ -23,6 +23,14 @@ public class enemyMovement : MonoBehaviour
     public float chaseSpeed;
     public float chaseDistance;
 
+    [Header("Range Attack")]
+    public float shootingRange;
+    public GameObject gun;
+    public GameObject bullet;
+    //public float fireRate;
+    //private float nextFireTime;
+   
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -33,56 +41,80 @@ public class enemyMovement : MonoBehaviour
         destination = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
-        {
-            chaseMode = true;
-            anim.SetBool("IsEnemyChasing?", true);
-            Debug.Log("chaseMode activated\n");
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
-            if (transform.position.x > playerTransform.position.x)
-            {
-                transform.localScale = new Vector3(size_x, size_y, size_z);
-                transform.position += Vector3.left * chaseSpeed * Time.deltaTime;
-                Debug.Log("Enemy is chasing to the left...\n");
-            }
-            else if (transform.position.x < playerTransform.position.x)
+        if (distanceToPlayer < chaseDistance)
+        {
+            anim.SetBool("IsEnemyChasing?", true);
+            //Debug.Log("chaseMode activated\n");
+
+            if (transform.position.x > playerTransform.position.x && distanceToPlayer > shootingRange)
             {
                 transform.localScale = new Vector3(-size_x, size_y, size_z);
-                transform.position += Vector3.right * chaseSpeed * Time.deltaTime;
-                Debug.Log("Enemy is chasing to the right...\n");
+                transform.position += Vector3.left * chaseSpeed * Time.deltaTime;
+                //Debug.Log("Enemy is chasing to the left...\n");
             }
-
+            else if (transform.position.x < playerTransform.position.x && distanceToPlayer > shootingRange)
+            {
+                transform.localScale = new Vector3(size_x, size_y, size_z);
+                transform.position += Vector3.right * chaseSpeed * Time.deltaTime;
+                //Debug.Log("Enemy is chasing to the right...\n");
+            }
+            else
+            { 
+                if (transform.position.x < playerTransform.position.x)
+                {
+                    anim.SetBool("IsEnemyAttacking?", true);
+                    transform.localScale = new Vector3(size_x, size_y, size_z);
+                    //Fire();
+                }
+                else
+                {
+                    anim.SetBool("IsEnemyAttacking?", true);
+                    transform.localScale = new Vector3(-size_x, size_y, size_z);
+                    //Fire();
+                }
+            }
         }
         else
         {
-            chaseMode = false;
+            anim.SetBool("IsEnemyAttacking?", false);
             anim.SetBool("IsEnemyChasing?", false);
 
             if (destination == 0)
             {
+                //Debug.Log("Roaming to 0\n");
                 anim.SetBool("IsEnemyMoving?", true);
                 transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
                 {
                     destination = 1;
-                    Debug.Log("Roaming to 1\n");
                 }
             }
             else if (destination == 1)
             {
+                //Debug.Log("Roaming to 1\n");
+                anim.SetBool("IsEnemyMoving?", true);
                 transform.localScale = new Vector3(-size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
-                    anim.SetTrigger("IsEnemyMoving?");
                     destination = 0;
-                    Debug.Log("Roaming to 0\n");
                 }
             }
         }
+    }
+
+    public void Fire()
+    {
+        //if(nextFireTime < Time.time)
+        //{
+            //transform.localScale = new Vector3(size_x, size_y, size_z);
+            Instantiate(bullet, gun.transform.position, Quaternion.identity);
+        //    nextFireTime = Time.time + fireRate;
+        //}
     }
 }
