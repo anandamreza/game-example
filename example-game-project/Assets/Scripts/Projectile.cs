@@ -32,7 +32,6 @@ public class Projectile : MonoBehaviour
     {
         hit = true;
         gameObject.SetActive(false);
-        Debug.Log("Test");
         if(other.gameObject.tag == "Enemy"){
             enemy.GetComponent<enemyHealth>().takeDamage(50);
         }
