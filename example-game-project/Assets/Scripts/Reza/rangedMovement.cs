@@ -6,6 +6,8 @@ using UnityEngine;
 public class rangedMovement : MonoBehaviour
 {
     private Animator anim;
+    private bool enemyGo;
+    private float timerGo;
 
     [Header("Enemy Size")]
     [SerializeField] private float size_x;
@@ -16,6 +18,7 @@ public class rangedMovement : MonoBehaviour
     public Transform[] patrolPoint;
     public float moveSpeed;
     public int destination;
+    public float idleTime;
 
     [Header("Enemy Chasing")]
     private Transform playerTransform;
@@ -39,6 +42,7 @@ public class rangedMovement : MonoBehaviour
     public void Start()
     {
         destination = 0;
+        enemyGo = true;
     }
 
     void Update()
@@ -83,7 +87,7 @@ public class rangedMovement : MonoBehaviour
             anim.SetBool("IsEnemyAttacking?", false);
             anim.SetBool("IsEnemyChasing?", false);
 
-            if (destination == 0)
+            if (destination == 0 && enemyGo == true)
             {
                 //Debug.Log("Roaming to 0\n");
                 anim.SetBool("IsEnemyMoving?", true);
@@ -91,10 +95,10 @@ public class rangedMovement : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
                 {
-                    destination = 1;
+                    StartCoroutine(reachPoint());
                 }
             }
-            else if (destination == 1)
+            else if (destination == 1 && enemyGo == true)
             {
                 //Debug.Log("Roaming to 1\n");
                 anim.SetBool("IsEnemyMoving?", true);
@@ -102,7 +106,7 @@ public class rangedMovement : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
-                    destination = 0;
+                    StartCoroutine(reachPoint());
                 }
             }
         }
@@ -116,5 +120,18 @@ public class rangedMovement : MonoBehaviour
             Instantiate(bullet, gun.transform.position, Quaternion.identity);
         //  nextFireTime = Time.time + fireRate;
         //}
+    }
+
+    private IEnumerator reachPoint()
+    {
+        Debug.Log("test : ");
+        anim.SetBool("IsEnemyMoving?", false);
+        enemyGo = false;
+        timerGo = 0;
+        timerGo += Time.deltaTime;
+        yield return new WaitForSeconds(idleTime);
+        destination = destination == 0 ? 1 : 0;
+        enemyGo = true;
+        anim.SetBool("IsEnemyMoving?", true);
     }
 }
