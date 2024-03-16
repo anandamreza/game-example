@@ -204,8 +204,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTime: 0.6
+  betterAttackTime: 0.8
   firePoint: {fileID: 885086204315998518}
   fireBalls:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  betterBalls:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
