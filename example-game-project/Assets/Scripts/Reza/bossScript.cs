@@ -6,42 +6,41 @@ using UnityEngine;
 public class bossScript : MonoBehaviour
 {
     private Animator anim;
+    private Transform player;
+    private enemyHealth bossHealth;
 
     [Header("Attack")]
     public GameObject bossGun;
     public GameObject bossBullet;
     public float bossRange;
-    private Transform player;
-    //public float attackTimer;
-
-    public enemyHealth bossHealth;
 
     [Header("Spawner")]
     public GameObject spawnEnemy;
     public GameObject bossSpawnMelee;
+
     public void Awake()
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        bossHealth = GetComponent<enemyHealth>();
     }
     public void Start()
     {
-        
+
     }
 
     public void Update()
     {
-       if(Vector2.Distance(player.transform.position, transform.position) < bossRange)
+        if (Vector2.Distance(player.transform.position, transform.position) < bossRange)
         {
-            // if(bossHealth.health >= 500)
-            // {
-            //     anim.SetBool("IsBossAttacking?", true);
-            // }
-            // else if(bossHealth.health < 500 &&  bossHealth.health > 0)
-            // {
-            //     anim.SetBool("IsBossAttacking?", false);
-            // }
-            anim.SetBool("IsBossAttacking?", true);
+            if (bossHealth.health >= 500)
+            {
+                anim.SetBool("IsBossAttacking?", true);
+            }
+            else if (bossHealth.health < 500 && bossHealth.health > 0)
+            {
+                anim.SetBool("IsBossAttacking?", false);
+            }
 
         }
     }
