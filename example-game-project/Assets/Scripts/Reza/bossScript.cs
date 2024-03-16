@@ -14,6 +14,8 @@ public class bossScript : MonoBehaviour
     private Transform player;
     //public float attackTimer;
 
+    public enemyHealth bossHealth;
+
     [Header("Spawner")]
     public GameObject spawnEnemy;
     public GameObject bossSpawnMelee;
@@ -31,7 +33,14 @@ public class bossScript : MonoBehaviour
     {
        if(Vector2.Distance(player.transform.position, transform.position) < bossRange)
         {
-            anim.SetBool("IsBossAttacking?", true);
+            if(bossHealth.health >= 500)
+            {
+                anim.SetBool("IsBossAttacking?", true);
+            }
+            else if(bossHealth.health < 500 &&  bossHealth.health > 0)
+            {
+                anim.SetBool("IsBossAttacking?", false);
+            }
 
         }
     }
