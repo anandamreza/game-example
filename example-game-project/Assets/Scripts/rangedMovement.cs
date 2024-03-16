@@ -18,7 +18,7 @@ public class rangedMovement : MonoBehaviour
     public int destination;
 
     [Header("Enemy Chasing")]
-    public Transform playerTransform;
+    private Transform playerTransform;
     public bool chaseMode;
     public float chaseSpeed;
     public float chaseDistance;
@@ -34,6 +34,7 @@ public class rangedMovement : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public void Start()
@@ -112,9 +113,9 @@ public class rangedMovement : MonoBehaviour
     {
         //if(nextFireTime < Time.time)
         //{
-            //transform.localScale = new Vector3(size_x, size_y, size_z);
+        //  transform.localScale = new Vector3(size_x, size_y, size_z);
             Instantiate(bullet, gun.transform.position, Quaternion.identity);
-        //    nextFireTime = Time.time + fireRate;
+        //  nextFireTime = Time.time + fireRate;
         //}
     }
 }

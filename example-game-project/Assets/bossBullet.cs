@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class enemyBullets : MonoBehaviour
+public class bossBullet : MonoBehaviour
 {
     GameObject target;
     Rigidbody2D bulletbody;
@@ -25,7 +23,7 @@ public class enemyBullets : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             target.gameObject.GetComponent<playerHealth>().health -= shotDamage;
             //Debug.Log("Damage : " + shotDamage);

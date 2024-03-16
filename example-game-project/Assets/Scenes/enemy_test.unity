@@ -1450,6 +1450,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1842745066}
     - target: {fileID: 5384018885571523955, guid: 9698e36d60a19644ebe6715d42e11d9b, type: 3}
+      propertyPath: idleTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384018885571523955, guid: 9698e36d60a19644ebe6715d42e11d9b, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384018885571523955, guid: 9698e36d60a19644ebe6715d42e11d9b, type: 3}
+      propertyPath: chaseDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384018885571523955, guid: 9698e36d60a19644ebe6715d42e11d9b, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1842745059}

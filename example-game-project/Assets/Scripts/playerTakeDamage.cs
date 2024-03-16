@@ -6,12 +6,23 @@ public class takeDamage : MonoBehaviour
 {
     public int damage;
     public playerHealth health;
+    public float timer;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
+    {
+        timer = Time.deltaTime;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            health.takeDamage(damage);
+            timer = 0;
+            if(timer > 2)
+            {
+                health.takeDamage(damage);
+                timer = 0;
+            }
         }
     }
 
