@@ -30,5 +30,6 @@ public class bossBullet : MonoBehaviour
             //Debug.Log("playerHealth : " + target.gameObject.GetComponent<playerHealth>().health);
             Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
