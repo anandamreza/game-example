@@ -33,14 +33,15 @@ public class bossScript : MonoBehaviour
     {
        if(Vector2.Distance(player.transform.position, transform.position) < bossRange)
         {
-            if(bossHealth.health >= 500)
-            {
-                anim.SetBool("IsBossAttacking?", true);
-            }
-            else if(bossHealth.health < 500 &&  bossHealth.health > 0)
-            {
-                anim.SetBool("IsBossAttacking?", false);
-            }
+            // if(bossHealth.health >= 500)
+            // {
+            //     anim.SetBool("IsBossAttacking?", true);
+            // }
+            // else if(bossHealth.health < 500 &&  bossHealth.health > 0)
+            // {
+            //     anim.SetBool("IsBossAttacking?", false);
+            // }
+            anim.SetBool("IsBossAttacking?", true);
 
         }
     }
