@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossGun: {fileID: 1260353337}
   bossBullet: {fileID: 2794263211848693056, guid: df2a922d8eb123d4a879546308c38345, type: 3}
-  bossRange: 15
+  bossRange: 10
   spawnEnemy: {fileID: 8059843077656743944, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
   bossSpawnMelee: {fileID: 0}
 --- !u!114 &1712199331
