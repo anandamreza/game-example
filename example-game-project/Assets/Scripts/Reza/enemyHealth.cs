@@ -18,6 +18,7 @@ public class enemyHealth : MonoBehaviour
         if(health <=0)
         {
             Destroy(gameObject);
+            GameBehaviour.Instance.sceneToMoveTo();
         }
     }
 

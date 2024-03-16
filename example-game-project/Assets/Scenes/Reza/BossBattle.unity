@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -648,6 +649,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1194825350}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cb6477db505444da8b1e1075903631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &601569309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2014,6 +2027,7 @@ MonoBehaviour:
   bossGun: {fileID: 1260353337}
   bossBullet: {fileID: 2794263211848693056, guid: df2a922d8eb123d4a879546308c38345, type: 3}
   bossRange: 10
+  bossHealth: {fileID: 0}
   spawnEnemy: {fileID: 8059843077656743944, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
   bossSpawnMelee: {fileID: 0}
 --- !u!114 &1712199331
@@ -2028,7 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2864faf3386e26438b9297e1d87b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 1
   health: 0
 --- !u!1 &1749667466 stripped
 GameObject:
