@@ -12,6 +12,7 @@ public class bossScript : MonoBehaviour
     public GameObject bossBullet;
     public float bossRange;
     private Transform player;
+    //public float attackTimer;
 
     [Header("Spawner")]
     public GameObject spawnEnemy;
@@ -31,6 +32,7 @@ public class bossScript : MonoBehaviour
        if(Vector2.Distance(player.transform.position, transform.position) < bossRange)
         {
             anim.SetBool("IsBossAttacking?", true);
+
         }
     }
 
