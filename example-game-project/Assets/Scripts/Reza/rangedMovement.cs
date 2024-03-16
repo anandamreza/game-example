@@ -19,7 +19,6 @@ public class rangedMovement : MonoBehaviour
 
     [Header("Enemy Chasing")]
     private Transform playerTransform;
-    public bool chaseMode;
     public float chaseSpeed;
     public float chaseDistance;
 

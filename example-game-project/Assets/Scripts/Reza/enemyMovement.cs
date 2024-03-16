@@ -24,7 +24,6 @@ public class enemyMovement : MonoBehaviour
 
     [Header("Enemy Chasing")]
     private Transform playerTransform;
-    public bool chaseMode;
     public float chaseSpeed;
     public float chaseDistance;
 
@@ -46,7 +45,7 @@ public class enemyMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
         {
             anim.SetBool("IsEnemyChasing?", true);
-            Debug.Log("chaseMode activated\n");
+            //Debug.Log("chaseMode activated\n");
 
             if (transform.position.x > playerTransform.position.x)
             {
