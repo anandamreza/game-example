@@ -5,7 +5,12 @@ using UnityEngine;
 public class takeDamage : MonoBehaviour
 {
     public int damage;
-    public playerHealth health;
+    private playerHealth health;
+
+    private void Awake()
+    {
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
