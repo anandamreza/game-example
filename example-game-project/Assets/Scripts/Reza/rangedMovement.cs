@@ -9,10 +9,9 @@ public class rangedMovement : MonoBehaviour
     private bool enemyGo;
     private float timerGo;
 
-    [Header("Enemy Size")]
-    [SerializeField] private float size_x;
-    [SerializeField] private float size_y;
-    [SerializeField] private float size_z;
+    private float size_x= -3;
+    private float size_y= 3;
+    private float size_z= 3;
 
     [Header("Enemey Movement")]
     public Transform[] patrolPoint;
@@ -91,7 +90,7 @@ public class rangedMovement : MonoBehaviour
             {
                 //Debug.Log("Roaming to 0\n");
                 anim.SetBool("IsEnemyMoving?", true);
-                transform.localScale = new Vector3(size_x, size_y, size_z);
+                transform.localScale = new Vector3(-size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[0].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[0].position) < 0.2f)
                 {
@@ -102,7 +101,7 @@ public class rangedMovement : MonoBehaviour
             {
                 //Debug.Log("Roaming to 1\n");
                 anim.SetBool("IsEnemyMoving?", true);
-                transform.localScale = new Vector3(-size_x, size_y, size_z);
+                transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoint[1].position, moveSpeed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, patrolPoint[1].position) < 0.2f)
                 {
@@ -131,6 +130,7 @@ public class rangedMovement : MonoBehaviour
         timerGo += Time.deltaTime;
         yield return new WaitForSeconds(idleTime);
         destination = destination == 0 ? 1 : 0;
+
         enemyGo = true;
         anim.SetBool("IsEnemyMoving?", true);
     }

@@ -27,13 +27,30 @@ public class Projectile : MonoBehaviour
         }
         projectileHilang += Time.deltaTime;
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         hit = true;
         gameObject.SetActive(false);
         if(other.gameObject.tag == "Enemy"){
             enemy.GetComponent<enemyHealth>().takeDamage(50);
+        }
+    }
+    */
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        hit = true;
+        gameObject.SetActive(false);
+        enemyHealth health = other.GetComponent<enemyHealth>();
+        bossHealth health2 = other.GetComponent<bossHealth>();  
+        if(health != null)
+        {
+            health.takeDamage(50);
+        }
+        
+        if(health2 != null)
+        {
+            health2.takeDamage(50);
         }
     }
 

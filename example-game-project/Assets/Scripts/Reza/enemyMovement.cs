@@ -10,10 +10,9 @@ public class enemyMovement : MonoBehaviour
     private bool enemyGo;
     //private float timerGo;
 
-    [Header("Enemy Size")]
-    [SerializeField] private float size_x;
-    [SerializeField] private float size_y;
-    [SerializeField] private float size_z;
+    private float size_x = 3;
+    private float size_y = 3;
+    private float size_z = 3;
 
     [Header("Enemey Movement")]
     public Transform[] patrolPoint;
@@ -87,13 +86,14 @@ public class enemyMovement : MonoBehaviour
     }
     private IEnumerator reachPoint()
     {
-        Debug.Log("test : ");
+        //Debug.Log("test : ");
         anim.SetBool("IsEnemyMoving?", false);
         enemyGo = false;
         timerGo = 0;
         timerGo += Time.deltaTime;
         yield return new WaitForSeconds(idleTime);
         destination = destination == 0 ? 1 : 0;
+
         enemyGo = true;
         anim.SetBool("IsEnemyMoving?", true);
     }

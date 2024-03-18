@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 12134381835805743, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6591728801506563478, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.18
@@ -449,12 +453,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: chaseSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: chaseDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: patrolPoint.Array.data[0]
@@ -550,6 +562,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 12134381835805743, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6591728801506563478, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.73
@@ -591,12 +607,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: chaseSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: chaseDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: patrolPoint.Array.data[0]
@@ -1583,6 +1607,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1283637376}
     m_Modifications:
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: idleTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
@@ -1592,11 +1620,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: chaseDistance
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: shootingRange
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: patrolPoint.Array.data[0]
@@ -1658,7 +1686,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8803717173683402359, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1806,6 +1835,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 12134381835805743, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6591728801506563478, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.6
@@ -1847,6 +1880,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
@@ -1855,13 +1892,17 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: chaseDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: patrolPoint.Array.data[0]
       value: 
-      objectReference: {fileID: 838915771}
+      objectReference: {fileID: 2010406076}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: patrolPoint.Array.data[1]
       value: 
-      objectReference: {fileID: 2010406076}
+      objectReference: {fileID: 838915771}
     - target: {fileID: 9047853859054598564, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -2210,6 +2251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1712199327}
   - {fileID: 1545300815}
   - {fileID: 508144812}
   - {fileID: 1261244658}
@@ -2308,6 +2350,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 1283637376}
     m_Modifications:
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: idleTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: chaseSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: chaseDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: patrolPoint.Array.data[0]
       value: 
       objectReference: {fileID: 1523778069}
@@ -2315,6 +2373,10 @@ PrefabInstance:
       propertyPath: patrolPoint.Array.data[1]
       value: 
       objectReference: {fileID: 838915771}
+    - target: {fileID: 2074172991274026155, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2838374581055615418, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.7588
@@ -2359,7 +2421,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Necromancer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8059843077656743944, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8803717173683402359, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2812,7 +2879,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1712199327}
   - component: {fileID: 1712199326}
-  - component: {fileID: 1712199325}
   - component: {fileID: 1712199324}
   - component: {fileID: 1712199329}
   - component: {fileID: 1712199330}
@@ -2859,33 +2925,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.022350669, y: 0.058149755}
   m_Size: {x: 0.25186896, y: 0.97482955}
   m_Direction: 0
---- !u!50 &1712199325
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712199323}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &1712199326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2946,13 +2985,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712199323}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.52, y: 0.84, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39.13, y: 0.6, z: 0.022007646}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1260353338}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1283637376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1712199329
 Animator:
@@ -3001,10 +3040,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1712199323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2864faf3386e26438b9297e1d87b086, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fd6f74d4aa61ac4e847635799a0c9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   health: 0
 --- !u!1 &1749667466 stripped
 GameObject:
@@ -3559,7 +3598,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1801504726}
-  - {fileID: 1712199327}
   - {fileID: 1400795696}
   - {fileID: 929986689}
   - {fileID: 741877704}

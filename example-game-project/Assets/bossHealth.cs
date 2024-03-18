@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyHealth : MonoBehaviour
+public class bossHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int health;
@@ -15,9 +15,10 @@ public class enemyHealth : MonoBehaviour
     public void takeDamage(int Damage)
     {
         health -= Damage;
-        if(health <=0)
+        if (health <= 0)
         {
             Destroy(gameObject);
+            GameBehaviour.Instance.sceneToMoveTo();
         }
     }
 
