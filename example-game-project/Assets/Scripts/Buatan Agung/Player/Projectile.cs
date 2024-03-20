@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     private bool hit;
+    public int damage;
     private float projectileHilang;
     float direction;
     private BoxCollider2D boxColider;
@@ -45,12 +46,12 @@ public class Projectile : MonoBehaviour
         bossHealth health2 = other.GetComponent<bossHealth>();  
         if(health != null)
         {
-            health.takeDamage(50);
+            health.takeDamage(damage);
         }
         
         if(health2 != null)
         {
-            health2.takeDamage(50);
+            health2.takeDamage(damage);
         }
     }
 

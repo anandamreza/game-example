@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private float chargeTime;
     private Animator anim;
     private PlayerMovement pm;
+    public GameObject javelin;
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -18,14 +19,18 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        anim.SetBool("charging", Input.GetMouseButton(1) || Input.GetMouseButton(0) && pm.canAttack());
-
-        if(Input.GetMouseButton(1)){
+        anim.SetBool("charging", Input.GetMouseButton(0) && pm.canAttack() || Input.GetMouseButton(1) && pm.canAttack());
+        if(Input.GetMouseButton(1) && pm.canAttack()){
             chargeTime += Time.deltaTime;
-        }else if(Input.GetMouseButton(0)){
+            javelin.transform.position = firePoint.position;
+            javelin.SetActive(true);
+            javelin.transform.localScale = new Vector3(gameObject.transform.localScale.x, javelin.transform.localScale.y, javelin.transform.localScale.z);
+            javelin.GetComponent<Animator>().SetBool("charge", Input.GetMouseButton(1) && pm.canAttack());
+        }else if(Input.GetMouseButton(0) && pm.canAttack()){
             chargeTime += Time.deltaTime;  
         }
         if(Input.GetMouseButtonUp(1) && chargeTime >= betterAttackTime){
+            javelin.SetActive(false);
             if(pm.canAttack()){
                 Attack2();
             }
@@ -37,13 +42,13 @@ public class PlayerAttack : MonoBehaviour
         if(Input.GetMouseButtonUp(0) && chargeTime < attackTime){
             chargeTime = 0;
         }else if(Input.GetMouseButtonUp(1) && chargeTime < betterAttackTime){
+            javelin.SetActive(false);
             chargeTime = 0;
         }
     }
 
     private void Attack(){
         chargeTime = 0;
-
         fireBalls[FireBallTake()].transform.position = firePoint.position;
         fireBalls[FireBallTake()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
