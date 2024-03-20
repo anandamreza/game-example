@@ -6,6 +6,7 @@ public class playerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int health;
+    public GameOverScript gameOver;
 
     public HealthBar healthBar;
 
@@ -20,6 +21,7 @@ public class playerHealth : MonoBehaviour
         if(health <=0)
         {
             Destroy(gameObject);
+            gameOver.Setup();
         }
         healthBar.SetHealth(health);
     }

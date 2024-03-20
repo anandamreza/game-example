@@ -11,6 +11,9 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private PlayerMovement pm;
     public GameObject javelin;
+    public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -33,10 +36,12 @@ public class PlayerAttack : MonoBehaviour
             javelin.SetActive(false);
             if(pm.canAttack()){
                 Attack2();
+                source.PlayOneShot(clip2);
             }
         }else if(Input.GetMouseButtonUp(0) && chargeTime >= attackTime){
             if(pm.canAttack()){
                 Attack();
+                source.PlayOneShot(clip1);
             }
         }
         else if(Input.GetMouseButtonUp(0) && chargeTime < attackTime){

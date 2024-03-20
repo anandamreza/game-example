@@ -6,15 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Reza/BossBattle.unity
-    guid: e2864ed327e9d01408230d1d5f63f67b
+    path: Assets/Scenes/Menu utama.unity
+    guid: 825e04028d17b544ca9c7292997baad2
   - enabled: 1
-    path: Assets/Scenes/Agung/enemyRemaster1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Cutscene0.unity
+    guid: bbf862cfea0638647b5d5db32e246fd4
+  - enabled: 1
+    path: Assets/Scenes/Stage01.unity
+    guid: 31f97d7e6ec444846a3e6951d38e4737
+  - enabled: 1
+    path: Assets/Scenes/Cutscene1.unity
+    guid: d36a95098ea3637448a387fd8d9ceff0
+  - enabled: 1
+    path: Assets/Scenes/Stage02.unity
+    guid: de2a18317b9774e4d80da0d555f49198
+  - enabled: 1
+    path: Assets/Scenes/Cutscene2.unity
+    guid: e993fba422af90044852e04a9f342b34
   - enabled: 1
     path: Assets/Scenes/Stage03.unity
     guid: 241140051766e6141a0707c9c8ce0a25
   - enabled: 1
-    path: Assets/Scenes/Stage02.unity
-    guid: de2a18317b9774e4d80da0d555f49198
+    path: Assets/Scenes/Cutscene3.unity
+    guid: 1951896144ec9394f8c0df6585648aa7
+  - enabled: 1
+    path: Assets/Scenes/AboutUs.unity
+    guid: 2a4a86616bc7ff6449f5dcf790ee6e54
   m_configObjects: {}

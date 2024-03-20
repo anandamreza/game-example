@@ -26,6 +26,6 @@ public class GameBehaviour : MonoBehaviour
         
     }
     public void sceneToMoveTo(){
-        SceneManager.LoadScene("stage02");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

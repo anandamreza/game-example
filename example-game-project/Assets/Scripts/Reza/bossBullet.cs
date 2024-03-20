@@ -28,7 +28,6 @@ public class bossBullet : MonoBehaviour
             target.gameObject.GetComponent<playerHealth>().takeDamage(shotDamage);
             //Debug.Log("Damage : " + shotDamage);
             //Debug.Log("playerHealth : " + target.gameObject.GetComponent<playerHealth>().health);
-            Destroy(gameObject);
         }
         Destroy(gameObject);
     }
