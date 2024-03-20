@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         }else if(Input.GetMouseButton(0) && pm.canAttack()){
             chargeTime += Time.deltaTime;  
         }
-        if(Input.GetMouseButtonUp(1) && chargeTime >= betterAttackTime){
+        else if(Input.GetMouseButtonUp(1) && chargeTime >= betterAttackTime){
             javelin.SetActive(false);
             if(pm.canAttack()){
                 Attack2();
@@ -39,9 +39,13 @@ public class PlayerAttack : MonoBehaviour
                 Attack();
             }
         }
-        if(Input.GetMouseButtonUp(0) && chargeTime < attackTime){
+        else if(Input.GetMouseButtonUp(0) && chargeTime < attackTime){
             chargeTime = 0;
         }else if(Input.GetMouseButtonUp(1) && chargeTime < betterAttackTime){
+            javelin.SetActive(false);
+            chargeTime = 0;
+        }
+        else if(!pm.canAttack()){
             javelin.SetActive(false);
             chargeTime = 0;
         }
