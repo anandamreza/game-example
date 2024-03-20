@@ -623,6 +623,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: destinationWhere
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: patrolPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2010406076}
@@ -1488,6 +1492,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1283637376}
     m_Modifications:
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3476036611131564676, guid: 8ac2224c227eb54469cd57b39fea0821, type: 3}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: idleTime
       value: 2
       objectReference: {fileID: 0}
@@ -1506,6 +1514,10 @@ PrefabInstance:
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: shootingRange
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: destinationWhere
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: patrolPoint.Array.data[0]
@@ -2231,6 +2243,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1283637376}
     m_Modifications:
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3476036611131564676, guid: 8ac2224c227eb54469cd57b39fea0821, type: 3}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: idleTime
       value: 0
       objectReference: {fileID: 0}
@@ -2245,6 +2261,10 @@ PrefabInstance:
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: chaseDistance
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
+      propertyPath: destinationWhere
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 118687912846192714, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
       propertyPath: patrolPoint.Array.data[0]
@@ -2989,7 +3009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossGun: {fileID: 1260353337}
-  bossBullet: {fileID: 2794263211848693056, guid: df2a922d8eb123d4a879546308c38345, type: 3}
+  bossBullet: {fileID: 2794263211848693056, guid: 0eacb532e4b7f304cbb8adea5343f878, type: 3}
   bossRange: 10
   spawnEnemy: {fileID: 8059843077656743944, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
   bossSpawnMelee: {fileID: 0}
@@ -3552,11 +3572,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 766589311914426350, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.09418154
+      value: -0.08241558
       objectReference: {fileID: 0}
     - target: {fileID: 766589311914426350, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18404
+      value: -0.18403
       objectReference: {fileID: 0}
     - target: {fileID: 766589311914426350, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3592,11 +3612,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 988343959026635134, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.725819
+      value: -7.737585
       objectReference: {fileID: 0}
     - target: {fileID: 988343959026635134, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.035960004
+      value: -0.035970002
       objectReference: {fileID: 0}
     - target: {fileID: 2119925136655695319, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: orthographic size

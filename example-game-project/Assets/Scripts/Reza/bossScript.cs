@@ -7,12 +7,13 @@ public class bossScript : MonoBehaviour
 {
     private Animator anim;
     private Transform player;
-    private enemyHealth bossHealth;
+    private bossHealth bhealth;
 
     [Header("Attack")]
     public GameObject bossGun;
     public GameObject bossBullet;
     public float bossRange;
+    public bool finalBoss;
 
     [Header("Spawner")]
     public GameObject spawnEnemy;
@@ -22,7 +23,7 @@ public class bossScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        bossHealth = GetComponent<enemyHealth>();
+        bhealth = GetComponent<bossHealth>();
     }
     public void Start()
     {
@@ -33,17 +34,22 @@ public class bossScript : MonoBehaviour
     {
         if (Vector2.Distance(player.transform.position, transform.position) < bossRange)
         {
-            anim.SetBool("IsBossAttacking?", true);
-            /*
-            if (bossHealth.health >= 500)
+            if(!finalBoss)
             {
                 anim.SetBool("IsBossAttacking?", true);
             }
-            else if (bossHealth.health < 500 && bossHealth.health > 0)
+            else
             {
-                anim.SetBool("IsBossAttacking?", false);
+                if (bhealth.health >= 1000)
+                {
+                    anim.SetBool("IsBossAttacking?", true);
+                }
+                else if (bhealth.health < 500 && bhealth.health > 0)
+                {
+                    anim.SetBool("IsBossAttacking?", false);
+                    anim.SetBool("IsBossFinalAttacking?", true);
+                }
             }
-            */
         }
     }
 
@@ -52,8 +58,9 @@ public class bossScript : MonoBehaviour
         Instantiate(bossBullet, bossGun.transform.position, Quaternion.identity);
     }
 
-    public void bossSpawnEnemy()
+    public void bossSuper()
     {
-        Instantiate(spawnEnemy, bossGun.transform.position, Quaternion.identity);
+        Instantiate(bossBullet, bossGun.transform.position, Quaternion.identity);
+        Instantiate(bossBullet, bossGun.transform.position, Quaternion.identity);
     }
 }

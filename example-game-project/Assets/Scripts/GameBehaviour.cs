@@ -26,6 +26,6 @@ public class GameBehaviour : MonoBehaviour
         
     }
     public void sceneToMoveTo(){
-        SceneManager.LoadScene("enemyRemaster1");
+        SceneManager.LoadScene("stage02");
     }
 }

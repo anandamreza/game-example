@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
 
     void Awake()
     {
+        damage = 30; //ngetest aja bang
         boxColider = GetComponent<BoxCollider2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
     }

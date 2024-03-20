@@ -8,7 +8,8 @@ public class enemyMovement : MonoBehaviour
 {
     private Animator anim;
     private bool enemyGo;
-    //private float timerGo;
+    private float timerGo;
+    private int destination;
 
     private float size_x = 3;
     private float size_y = 3;
@@ -17,9 +18,8 @@ public class enemyMovement : MonoBehaviour
     [Header("Enemey Movement")]
     public Transform[] patrolPoint;
     public float moveSpeed;
-    public int destination;
+    public int destinationWhere;
     public float idleTime;
-    public float timerGo;
 
     [Header("Enemy Chasing")]
     private Transform playerTransform;
@@ -34,7 +34,7 @@ public class enemyMovement : MonoBehaviour
 
     public void Start()
     {
-        destination = 0;
+        destination = destinationWhere;
         enemyGo = true;
     }
 
@@ -62,6 +62,11 @@ public class enemyMovement : MonoBehaviour
         }
         else
         {
+            if(destination == 3)
+            {
+                enemyGo = false;
+            }
+
             anim.SetBool("IsEnemyChasing?", false);
             if (destination == 0 && enemyGo == true)
             {

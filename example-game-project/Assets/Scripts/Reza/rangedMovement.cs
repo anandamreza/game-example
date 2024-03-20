@@ -8,6 +8,7 @@ public class rangedMovement : MonoBehaviour
     private Animator anim;
     private bool enemyGo;
     private float timerGo;
+    private int destination;
 
     private float size_x= -3;
     private float size_y= 3;
@@ -16,7 +17,7 @@ public class rangedMovement : MonoBehaviour
     [Header("Enemey Movement")]
     public Transform[] patrolPoint;
     public float moveSpeed;
-    public int destination;
+    public int destinationWhere;
     public float idleTime;
 
     [Header("Enemy Chasing")]
@@ -40,7 +41,7 @@ public class rangedMovement : MonoBehaviour
 
     public void Start()
     {
-        destination = 0;
+        destination = destinationWhere;
         enemyGo = true;
     }
 
@@ -86,7 +87,12 @@ public class rangedMovement : MonoBehaviour
             anim.SetBool("IsEnemyAttacking?", false);
             anim.SetBool("IsEnemyChasing?", false);
 
-            if (destination == 0 && enemyGo == true)
+            if (destination == 3)
+            {
+                enemyGo = false;
+            }
+
+            else if (destination == 0 && enemyGo == true)
             {
                 //Debug.Log("Roaming to 0\n");
                 anim.SetBool("IsEnemyMoving?", true);
