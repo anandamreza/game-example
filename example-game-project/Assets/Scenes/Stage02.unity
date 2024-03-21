@@ -2513,6 +2513,7 @@ GameObject:
   - component: {fileID: 1712199329}
   - component: {fileID: 1712199330}
   - component: {fileID: 1712199331}
+  - component: {fileID: 1712199332}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -2552,8 +2553,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022350669, y: 0.058149755}
-  m_Size: {x: 0.25186896, y: 0.97482955}
+  m_Offset: {x: -0.022350669, y: 0.10456538}
+  m_Size: {x: 0.25186896, y: 0.881999}
   m_Direction: 0
 --- !u!212 &1712199326
 SpriteRenderer:
@@ -2616,8 +2617,8 @@ Transform:
   m_GameObject: {fileID: 1712199323}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.95, y: 0.02, z: 0.022007646}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalPosition: {x: 38.96, y: -0.77, z: 0.022007646}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1260353338}
@@ -2676,6 +2677,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2000
   health: 0
+--- !u!50 &1712199332
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712199323}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!4 &1879714258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2838374581055615418, guid: 642afc728d9ba3e47ba8521431597703, type: 3}
@@ -2905,11 +2933,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 766589311914426350, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08529329
+      value: -0.08241558
       objectReference: {fileID: 0}
     - target: {fileID: 766589311914426350, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18404
+      value: -0.18403
       objectReference: {fileID: 0}
     - target: {fileID: 766589311914426350, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2945,11 +2973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 988343959026635134, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7347074
+      value: -7.737585
       objectReference: {fileID: 0}
     - target: {fileID: 988343959026635134, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.035960034
+      value: -0.035970032
       objectReference: {fileID: 0}
     - target: {fileID: 2119925136655695319, guid: 4f8b71ecae03c294aab5b49a162a9cbb, type: 3}
       propertyPath: orthographic size

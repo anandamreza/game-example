@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour
 {
+    private Animator anim;
     public int maxHealth = 100;
     public int health;
     public GameOverScript gameOver;
 
     public HealthBar healthBar;
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Start()
     {
         health = maxHealth;

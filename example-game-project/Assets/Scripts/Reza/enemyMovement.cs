@@ -8,6 +8,7 @@ public class enemyMovement : MonoBehaviour
 {
     private Animator anim;
     private bool enemyGo;
+    private bool enemyChase;
     private float timerGo;
     private int destination;
 
@@ -26,6 +27,9 @@ public class enemyMovement : MonoBehaviour
     public float chaseSpeed;
     public float chaseDistance;
 
+    [Header("Enemy Attack")]
+    public int damage;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -36,12 +40,13 @@ public class enemyMovement : MonoBehaviour
     {
         destination = destinationWhere;
         enemyGo = true;
+        enemyChase = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+        if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && enemyChase == true)
         {
             anim.SetBool("IsEnemyChasing?", true);
             //Debug.Log("chaseMode activated\n");
@@ -51,12 +56,16 @@ public class enemyMovement : MonoBehaviour
                 transform.localScale = new Vector3(size_x, size_y, size_z);
                 transform.position += Vector3.left * chaseSpeed * Time.deltaTime;
                 //Debug.Log("Enemy is chasing to the left...\n");
+
+                StartCoroutine(enemyAttack());
             }
             else if (transform.position.x < playerTransform.position.x)
             {
                 transform.localScale = new Vector3(-size_x, size_y, size_z);
                 transform.position += Vector3.right * chaseSpeed * Time.deltaTime;
                 //Debug.Log("Enemy is chasing to the right...\n");
+
+                StartCoroutine(enemyAttack());
             }
 
         }
@@ -94,12 +103,30 @@ public class enemyMovement : MonoBehaviour
         //Debug.Log("test : ");
         anim.SetBool("IsEnemyMoving?", false);
         enemyGo = false;
-        timerGo = 0;
-        timerGo += Time.deltaTime;
+        //timerGo = 0;
+        //timerGo += Time.deltaTime;
         yield return new WaitForSeconds(idleTime);
         destination = destination == 0 ? 1 : 0;
 
         enemyGo = true;
         anim.SetBool("IsEnemyMoving?", true);
+    }
+
+    private IEnumerator enemyAttack()
+    {
+        if (Vector2.Distance(transform.position, playerTransform.position) < 1f)
+        {
+            anim.SetBool("IsEnemyAttacking?", true);
+            enemyGo = false;
+            enemyChase = false;
+            yield return new WaitForSeconds(0.01f);
+        }
+        else
+        {
+            anim.SetBool("IsEnemyAttacking?", false);
+        }
+        
+        enemyGo = true;
+        enemyChase = true;
     }
 }
