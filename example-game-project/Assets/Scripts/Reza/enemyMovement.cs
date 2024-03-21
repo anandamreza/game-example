@@ -9,7 +9,6 @@ public class enemyMovement : MonoBehaviour
     private Animator anim;
     private bool enemyGo;
     private bool enemyChase;
-    private float timerGo;
     private int destination;
 
     private float size_x = 3;
@@ -103,8 +102,6 @@ public class enemyMovement : MonoBehaviour
         //Debug.Log("test : ");
         anim.SetBool("IsEnemyMoving?", false);
         enemyGo = false;
-        //timerGo = 0;
-        //timerGo += Time.deltaTime;
         yield return new WaitForSeconds(idleTime);
         destination = destination == 0 ? 1 : 0;
 

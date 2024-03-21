@@ -1779,6 +1779,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
+      propertyPath: idleTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094811176673106391, guid: 99e997dab1d32cb469b406b44b1421c0, type: 3}
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}

@@ -25,10 +25,17 @@ public class playerHealth : MonoBehaviour
         health -= Damage;
         if(health <=0)
         {
-            Destroy(gameObject);
-            gameOver.Setup();
+            StartCoroutine(playerDead());
         }
         healthBar.SetHealth(health);
     }
 
+    private IEnumerator playerDead()
+    {
+        anim.SetBool("dead", true);
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+        anim.SetBool("dead", false);
+        gameOver.Setup();
+    }
 }
